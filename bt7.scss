@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+body {
+  position: relative;
+}
+.header {
+  @include size(100%, 50px);
+  background-color: aqua;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+  &__icon {
+    @include size(35px, 35px);
+    font-size: 1.2em;
+    line-height: 32px;
+    text-align: center;
+    float: right;
+    margin: 7.5px 20px;
+    color: red;
+    border: 3px solid red;
+    border-radius: 5px;
+    // background-color: rebeccapurple;
+  }
+}
+
+.section {
+  @include size(95%, 1000px);
+  margin: auto;
+
+  .title {
+    text-align: center;
+    font-size: 1em;
+    margin: 10px 20px;
+    &__main {
+      font-size: 1.3em;
+      font-weight: bold;
+      font-style: italic;
+      color: red;
+    }
+  }
+
+  .container {
+    @include size(100%, auto);
+
+    // background-color: rebeccapurple;
+    display: inline-flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    .box {
+      @include size(200px, auto);
+      text-align: center;
+      background-color: aqua;
+
+      img {
+        @include size(100%, 100px);
+      }
+
+      .addItem {
+        padding: 5px 10px;
+        color: red;
+        border: none;
+        border-radius: 5px;
+        background-color: black;
+
+        &:hover {
+          background-color: red;
+          color: black;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.modal {
+  @include size(100%, 100%);
+  position: fixed;
+  top: 0px;
+  background-color: rgba(1, 24, 34, 0.4);
+  display: none;
+
+  &__item {
+    @include size(600px, 500px);
+    background-color: rgba(17, 191, 249, 1);
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 15% 5% 15% 5%;
+
+    &__title {
+      @include size(100%, 50px);
+      text-align: center;
+      padding: 15px;
+      font-size: 1.3em;
+      font-weight: bold;
+      font-style: italic;
+      color: red;
+      background-color: greenyellow;
+      border-radius: 10px;
+      position: relative;
+
+      .icon {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        background-color: black;
+        padding: 5px 10px;
+        border-radius: 100px;
+
+        &:hover {
+          background-color: red;
+          color: black;
+        }
+      }
+    }
+
+    &__itemAll {
+      @include size(100%, 90%);
+      //   background-color: red;
+      display: inline-flex;
+      //   justify-content: space-around;
+      flex-wrap: wrap;
+      overflow-y: auto;
+
+      .box {
+        @include size(calc(92% / 3), 200px);
+        text-align: center;
+        background-color: aqua;
+        margin: 10px 0px 0px 2%;
+        border-radius: 10px;
+
+        img {
+          @include size(100%, 100px);
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+        }
+
+        .addItem {
+          padding: 5px 10px;
+          color: red;
+          border: none;
+          border-radius: 5px;
+          background-color: black;
+        }
+      }
+
+      .box:last-child {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+  background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: red;
+}
